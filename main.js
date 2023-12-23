@@ -34,11 +34,3 @@ app.get('/api/proxy', async (req, res) => {
 app.listen(port, () => {
     console.log(`Servidor está rodando em http://localhost:${port}`);
 });
-
-export default function handler(req, res) {
-    res.statusCode = 200;
-    res.setHeader('Content-Type', 'application/json');
-    res.json({ name: 'John Doe' });
-}
-
-module.exports = app;
