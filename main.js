@@ -12,6 +12,15 @@ app.use((req, res, next) => {
     next();
 });
 
+app.get('/', async (req, res) => {
+    try {
+        res.json({ message: 'Bem vindo ao proxy de solicitações!'});
+    } catch (error) {
+        console.error('Erro ao encaminhar a solicitação:', error.message);
+        res.status(500).json({ error: 'Erro ao processar a solicitação' });
+    }
+});
+
 // Rota para encaminhar solicitações com a URL como parâmetro
 app.get('/api/proxy', async (req, res) => {
     try {
